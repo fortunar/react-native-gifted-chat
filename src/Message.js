@@ -8,7 +8,7 @@ import Avatar from './Avatar';
 import Bubble from './Bubble';
 // import Day from './Day';
 
-import {isSameUser, isSameDay} from './chatUtils';
+import {isSameUser, isSameDay} from './utils';
 
 export default class Message extends React.Component {
 

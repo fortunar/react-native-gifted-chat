@@ -16,7 +16,7 @@ import MessageText from './MessageText';
 import MessageImage from './MessageImage';
 import Time from './Time';
 
-import { isSameUser, isSameDay, warnDeprecated } from './chatUtils';
+import { isSameUser, isSameDay, warnDeprecated } from './utils';
 
 export default class Bubble extends React.Component {
   constructor(props) {
