@@ -425,10 +425,11 @@ class GiftedChat extends React.Component {
   }
 
   render() {
+    const {containerStyle} = this.props;
     if (this.state.isInitialized === true) {
       return (
         <ActionSheet ref={component => this._actionSheetRef = component}>
-          <View style={styles.container} onLayout={this.onMainViewLayout}>
+          <View style={[styles.container, containerStyle]} onLayout={this.onMainViewLayout}>
             {this.renderMessages()}
             {this.renderInputToolbar()}
           </View>
