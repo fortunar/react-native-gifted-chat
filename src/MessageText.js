@@ -1,3 +1,9 @@
+// ******************************************
+// This was copied from RN Gifted Chat Library. 
+// REASON: We need to modify the components offered more than library props are able to offer.
+// ******************************************
+
+
 import React from 'react';
 import {
   Linking,
@@ -49,16 +55,16 @@ export default class MessageText extends React.Component {
   }
 
   render() {
+    let propsTextStyle = this.props.textStyle;
     return (
       <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
         <ParsedText
-          style={[styles[this.props.position].text, this.props.textStyle[this.props.position]]}
+          style={[styles[this.props.position].text, this.props.textStyle[this.props.position], propsTextStyle]}
           parse={[
             {type: 'url', style: StyleSheet.flatten([styles[this.props.position].link, this.props.linkStyle[this.props.position]]), onPress: this.onUrlPress},
             {type: 'phone', style: StyleSheet.flatten([styles[this.props.position].link, this.props.linkStyle[this.props.position]]), onPress: this.onPhonePress},
             {type: 'email', style: StyleSheet.flatten([styles[this.props.position].link, this.props.linkStyle[this.props.position]]), onPress: this.onEmailPress},
-          ]}
-        >
+          ]}>
           {this.props.currentMessage.text}
         </ParsedText>
       </View>
@@ -73,6 +79,9 @@ const textStyle = {
   marginBottom: 5,
   marginLeft: 10,
   marginRight: 10,
+  paddingTop: 7,
+  paddingBottom: 4,
+  paddingHorizontal: 4
 };
 
 const styles = {

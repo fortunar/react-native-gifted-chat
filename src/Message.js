@@ -6,9 +6,9 @@ import {
 
 import Avatar from './Avatar';
 import Bubble from './Bubble';
-import Day from './Day';
+// import Day from './Day';
 
-import {isSameUser, isSameDay} from './utils';
+import {isSameUser, isSameDay} from './chatUtils';
 
 export default class Message extends React.Component {
 
@@ -21,23 +21,12 @@ export default class Message extends React.Component {
     }
   }
 
-  renderDay() {
-    if (this.props.currentMessage.createdAt) {
-      const dayProps = this.getInnerComponentProps();
-      if (this.props.renderDay) {
-        return this.props.renderDay(dayProps);
-      }
-      return <Day {...dayProps}/>;
-    }
-    return null;
-  }
-
-  renderBubble() {
+  renderBubble(textStyle) {
     const bubbleProps = this.getInnerComponentProps();
     if (this.props.renderBubble) {
       return this.props.renderBubble(bubbleProps);
     }
-    return <Bubble {...bubbleProps}/>;
+    return <Bubble {...bubbleProps} textStyle={textStyle}/>;
   }
 
   renderAvatar() {
@@ -49,14 +38,15 @@ export default class Message extends React.Component {
   }
 
   render() {
+    const {textStyle} = this.props;
+    let shouldRenderAvatar = (this.props.user._id !== this.props.currentMessage.user._id);
     return (
       <View>
-        {this.renderDay()}
         <View style={[styles[this.props.position].container, {
           marginBottom: isSameUser(this.props.currentMessage, this.props.nextMessage) ? 2 : 10,
-        }, this.props.containerStyle[this.props.position]]}>
+        }, this.props.containerStyle[this.props.position], shouldRenderAvatar ? {paddingBottom: 15} : {}]}>
           {this.props.position === 'left' ? this.renderAvatar() : null}
-          {this.renderBubble()}
+          {this.renderBubble(textStyle)}
           {this.props.position === 'right' ? this.renderAvatar() : null}
         </View>
       </View>
@@ -80,7 +70,7 @@ const styles = {
       alignItems: 'flex-end',
       justifyContent: 'flex-end',
       marginLeft: 0,
-      marginRight: 8,
+      paddingVertical: 4
     },
   }),
 };

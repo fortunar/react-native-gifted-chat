@@ -1,3 +1,8 @@
+// ******************************************
+// This was copied from RN Gifted Chat Library. 
+// REASON: We need to modify the components offered more than library props are able to offer.
+// ******************************************
+
 import React from 'react';
 import {
   Text,
@@ -11,7 +16,7 @@ import MessageText from './MessageText';
 import MessageImage from './MessageImage';
 import Time from './Time';
 
-import { isSameUser, isSameDay, warnDeprecated } from './utils';
+import { isSameUser, isSameDay, warnDeprecated } from './chatUtils';
 
 export default class Bubble extends React.Component {
   constructor(props) {
@@ -33,13 +38,13 @@ export default class Bubble extends React.Component {
     return null;
   }
 
-  renderMessageText() {
+  renderMessageText(textStyle) {
     if (this.props.currentMessage.text) {
       const {containerStyle, wrapperStyle, ...messageTextProps} = this.props;
       if (this.props.renderMessageText) {
         return this.props.renderMessageText(messageTextProps);
       }
-      return <MessageText {...messageTextProps}/>;
+      return <MessageText {...messageTextProps} textStyle={textStyle}/>;
     }
     return null;
   }
@@ -117,6 +122,7 @@ export default class Bubble extends React.Component {
   }
 
   render() {
+    const {textStyle} = this.props;
     return (
       <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
         <View style={[styles[this.props.position].wrapper, this.props.wrapperStyle[this.props.position], this.handleBubbleToNext(), this.handleBubbleToPrevious()]}>
@@ -128,9 +134,9 @@ export default class Bubble extends React.Component {
             <View>
               {this.renderCustomView()}
               {this.renderMessageImage()}
-              {this.renderMessageText()}
+              {this.renderMessageText(textStyle)}
               <View style={styles.bottom}>
-                {this.renderTime()}
+                {/*{this.renderTime()}*/}
                 {this.renderTicks()}
               </View>
             </View>
@@ -148,11 +154,13 @@ const styles = {
       alignItems: 'flex-start',
     },
     wrapper: {
-      borderRadius: 15,
+      borderRadius: 8,
       backgroundColor: '#f0f0f0',
-      marginRight: 60,
+      marginRight: 50,
       minHeight: 20,
       justifyContent: 'flex-end',
+      alignSelf: "stretch",
+      marginLeft: 10
     },
     containerToNext: {
       borderBottomLeftRadius: 3,
@@ -167,9 +175,10 @@ const styles = {
       alignItems: 'flex-end',
     },
     wrapper: {
-      borderRadius: 15,
-      backgroundColor: '#0084ff',
-      marginLeft: 60,
+      borderRadius: 8,
+      borderBottomRightRadius: 0,
+      backgroundColor: '#6F4FD1',
+      marginRight: 50,
       minHeight: 20,
       justifyContent: 'flex-end',
     },
