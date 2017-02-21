@@ -57,7 +57,7 @@ const styles = {
   }),
   right: StyleSheet.create({
     container: {
-      marginLeft: 8,
+      marginLeft: 23,
     },
     onTop: {
       alignSelf: "flex-start"

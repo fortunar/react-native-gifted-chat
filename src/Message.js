@@ -60,7 +60,7 @@ const styles = {
       flexDirection: 'row',
       alignItems: 'flex-end',
       justifyContent: 'flex-start',
-      marginLeft: 8,
+      marginLeft: 23,
       marginRight: 0,
     },
   }),
