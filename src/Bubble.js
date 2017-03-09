@@ -156,7 +156,7 @@ const styles = {
     wrapper: {
       borderRadius: 8,
       backgroundColor: '#f0f0f0',
-      marginRight: 50,
+      marginRight: 35,
       minHeight: 20,
       justifyContent: 'flex-end',
       alignSelf: "stretch",
@@ -178,7 +178,7 @@ const styles = {
       borderRadius: 8,
       borderBottomRightRadius: 0,
       backgroundColor: '#32367E',
-      marginRight: 50,
+      marginRight: 35,
       minHeight: 20,
       justifyContent: 'flex-end',
     },
