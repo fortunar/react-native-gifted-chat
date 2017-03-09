@@ -6,7 +6,7 @@ import {
 
 import Avatar from './Avatar';
 import Bubble from './Bubble';
-// import Day from './Day';
+import Day from './Day';
 
 import {isSameUser, isSameDay} from './utils';
 
@@ -36,12 +36,23 @@ export default class Message extends React.Component {
     }
     return null;
   }
+  renderDay() {
+    if (this.props.currentMessage.createdAt) {
+      const dayProps = this.getInnerComponentProps();
+      if (this.props.renderDay) {
+        return this.props.renderDay(dayProps);
+      }
+      return <Day {...dayProps}/>;
+    }
+    return null;
+  }
 
   render() {
     const {textStyle} = this.props;
     let shouldRenderAvatar = (this.props.user._id !== this.props.currentMessage.user._id);
     return (
       <View>
+        {this.renderDay()}
         <View style={[styles[this.props.position].container, {
           marginBottom: isSameUser(this.props.currentMessage, this.props.nextMessage) ? 2 : 10,
         }, this.props.containerStyle[this.props.position], shouldRenderAvatar ? {paddingBottom: 15} : {}]}>

@@ -136,7 +136,7 @@ export default class Bubble extends React.Component {
               {this.renderMessageImage()}
               {this.renderMessageText(textStyle)}
               <View style={styles.bottom}>
-                {/*{this.renderTime()}*/}
+                {this.renderTime()}
                 {this.renderTicks()}
               </View>
             </View>
@@ -177,7 +177,7 @@ const styles = {
     wrapper: {
       borderRadius: 8,
       borderBottomRightRadius: 0,
-      backgroundColor: '#6F4FD1',
+      backgroundColor: '#32367E',
       marginRight: 50,
       minHeight: 20,
       justifyContent: 'flex-end',
