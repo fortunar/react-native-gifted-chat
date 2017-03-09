@@ -159,7 +159,7 @@ const styles = {
       borderBottomLeftRadius: 0,
       backgroundColor: '#EFF0EF',
       minHeight: 20,
-      marginRight: 25,
+      marginRight: 22,
       justifyContent: 'flex-end',
     },
     containerToNext: {
@@ -178,7 +178,7 @@ const styles = {
       borderRadius: 8,
       borderBottomRightRadius: 0,
       backgroundColor: '#32367E',
-      marginRight: 25,
+      marginRight: 22,
       marginLeft: 25,
       minHeight: 20,
       justifyContent: 'flex-end',

@@ -39,6 +39,7 @@ export default class Message extends React.Component {
   renderDay() {
     if (this.props.currentMessage.createdAt) {
       const dayProps = this.getInnerComponentProps();
+      const {textStyle} = this.props;
       if (this.props.renderDay) {
         return this.props.renderDay(dayProps);
       }

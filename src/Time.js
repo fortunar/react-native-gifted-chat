@@ -11,7 +11,7 @@ export default class Time extends React.Component {
   render() {
     return (
       <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
-        <Text style={[styles[this.props.position].text, this.props.textStyle[this.props.position]]}>
+        <Text style={[styles[this.props.position].text, this.props.textStyle[this.props.position], {...this.props.textStyle, marginBottom: 0}]}>
           {moment(this.props.currentMessage.createdAt).locale(this.context.getLocale()).format('LT')}
         </Text>
       </View>
@@ -20,13 +20,13 @@ export default class Time extends React.Component {
 }
 
 const containerStyle = {
-  marginLeft: 10,
+  marginTop: 3,
   marginRight: 10,
   marginBottom: 5,
 };
 
 const textStyle = {
-  fontSize: 10,
+  fontSize: 12,
   backgroundColor: 'transparent',
   textAlign: 'right',
 };
