@@ -136,12 +136,12 @@ export default class Bubble extends React.Component {
               {this.renderMessageImage()}
               {this.renderMessageText(textStyle)}
               <View style={styles.bottom}>
-                {this.renderTime()}
                 {this.renderTicks()}
               </View>
             </View>
           </TouchableWithoutFeedback>
         </View>
+        {this.props.position == 'left' && this.renderTime()}
       </View>
     );
   }
