@@ -152,15 +152,15 @@ const styles = {
     container: {
       flex: 1,
       alignItems: 'flex-start',
+      marginLeft: 15
     },
     wrapper: {
       borderRadius: 8,
-      backgroundColor: '#f0f0f0',
-      marginRight: 35,
+      borderBottomLeftRadius: 0,
+      backgroundColor: '#EFF0EF',
       minHeight: 20,
+      marginRight: 25,
       justifyContent: 'flex-end',
-      alignSelf: "stretch",
-      marginLeft: 10
     },
     containerToNext: {
       borderBottomLeftRadius: 3,
@@ -178,7 +178,8 @@ const styles = {
       borderRadius: 8,
       borderBottomRightRadius: 0,
       backgroundColor: '#32367E',
-      marginRight: 35,
+      marginRight: 25,
+      marginLeft: 25,
       minHeight: 20,
       justifyContent: 'flex-end',
     },

@@ -71,7 +71,7 @@ const styles = {
       flexDirection: 'row',
       alignItems: 'flex-end',
       justifyContent: 'flex-start',
-      marginLeft: 23,
+      marginLeft: 0,
       marginRight: 0,
     },
   }),
