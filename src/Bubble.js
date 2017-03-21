@@ -152,7 +152,7 @@ const styles = {
     container: {
       flex: 1,
       alignItems: 'flex-start',
-      marginLeft: 15
+      marginLeft: 22
     },
     wrapper: {
       borderRadius: 8,

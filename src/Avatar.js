@@ -21,7 +21,8 @@ export default class Avatar extends React.Component {
     const renderAvatarOnTop = this.props.renderAvatarOnTop;
     const messageToCompare = renderAvatarOnTop ? this.props.previousMessage : this.props.nextMessage;
     const computedStyle = renderAvatarOnTop ? "onTop" : "onBottom"
-
+    return null;
+    
     if (isSameUser(this.props.currentMessage, messageToCompare) && isSameDay(this.props.currentMessage, messageToCompare)) {
       return (
         <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
